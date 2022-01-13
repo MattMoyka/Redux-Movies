@@ -21,13 +21,13 @@ function MovieListing() {
     <div>
       <div>
         <h2 className="flex justify-center pt-5 font-bold text-3xl w-[100%]">Movies</h2>
-        <div className="grid grid-cols-4 gap-10 p-10s">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 p-10">
           {renderMovies}
         </div>
       </div>
       <div>
         <h2 className="flex justify-center pt-5 font-bold text-3xl w-[100%]">Shows</h2>
-        <div className="grid grid-cols-4 gap-10 p-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 p-10">
           {renderShows}
         </div>
       </div>

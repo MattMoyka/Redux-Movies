@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieApi from '../../apis/movieApi'
-import { APIKey } from '../../apis/MovieApiKey'
+
+
+
+
+const APIKey = process.env.REACT_APP_API_KEY
+
 
 export const fetchAsynceMovies = createAsyncThunk('movies/fetchAsyncMovies', async () => {
   const movieText = "Harry"
@@ -36,22 +41,22 @@ const movieSlice = createSlice({
   },
   extraReducers: {
     [fetchAsynceMovies.pending]: () => {
-      console.log("pending")
+
     },
     [fetchAsynceMovies.fulfilled]: (state, { payload }) => {
-      console.log('fetched success');
+
       return { ...state, movies: payload };
     },
     [fetchAsynceMovies.rejected]: () => {
-      console.log('rejected');
+
 
     },
     [fetchAsynceShows.fulfilled]: (state, { payload }) => {
-      console.log('fetched success');
+
       return { ...state, shows: payload };
     },
     [fetchAsynceMovieOrShowDetail.fulfilled]: (state, { payload }) => {
-      console.log('fetched success');
+
       return { ...state, selectMovieOrShow: payload };
     }
   }
