@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="">
+    <div className="flex flex-col justify-between h-[100vh]">
       <Header></Header>
       <div className='mt-0 mb-0'>
 

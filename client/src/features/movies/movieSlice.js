@@ -22,15 +22,16 @@ export const fetchAsynceMovieOrShowDetail = createAsyncThunk('movies/fetchAsynce
 const initialState = {
   movies: {},
   shows: {},
-  selectedMovieOrShow: {}
+  selectMovieOrShow: {}
 }
 
 const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovies: (state, { payload }) => {
-      state.movies = payload;
+
+    removeSelectedMovieOrShow: (state) => {
+      state.selectMovieOrShow = {}
     }
   },
   extraReducers: {
@@ -51,14 +52,14 @@ const movieSlice = createSlice({
     },
     [fetchAsynceMovieOrShowDetail.fulfilled]: (state, { payload }) => {
       console.log('fetched success');
-      return { ...state, selectedMovieOrShow: payload };
+      return { ...state, selectMovieOrShow: payload };
     }
   }
 
 })
 
-export const { addMovies } = movieSlice.actions
+export const { removeSelectedMovieOrShow } = movieSlice.actions
 export const getAllMovies = (state) => state.movies.movies
 export const getAllShows = (state) => state.movies.shows
-export const getSelectedMovieOrShow = (state) => state.movies.selectMovieOrShow
+export const getSelectedMovieOrShow = (state) => state.movies?.selectMovieOrShow
 export default movieSlice.reducer
